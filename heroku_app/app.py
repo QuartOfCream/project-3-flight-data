@@ -17,18 +17,19 @@ def home():
     # Return template and data
     return render_template("index.html")
 
-@app.route('/predict',methods=['POST'])
-def predict():
-    '''
-    For rendering results on HTML GUI
-    '''
-    int_features = [float(x) for x in request.form.values()]
+@app.route('/predict/<month>/<day>/<airlineId>',methods=['GET'])
+def predict2(month, day, airlineId):
+
+    int_features = [float(month), float(day), float(airlineId)]
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='The predicted delay for this date is: {} minutes'.format(output))
+    result = {}
+    result['message'] = 'The predicted delay for this date is: {} minutes'.format(output)
+
+    return jsonify(result)
 
 ####################################
 # ADD MORE ENDPOINTS

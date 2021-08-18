@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>title</title>
+  <title>Predict Your Delay</title>
   <style>
     body {
-        background-image: url('/images/airport.jpeg');
+        background-image: url('heroku_app/templates/airport.jpeg');
         background-repeat: no-repeat;
         background-size: 1920px 1080px;
     }
@@ -24,8 +24,11 @@
       position: relative; left:180px; top:20px;
     }
     </style>
+    
 </head>
 <body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     <div class="container">
         <div class="image">
           <img src="heroku_app/templates/images/icon.png" style="float:left;padding:10px;width:30px;height:30px">
@@ -37,9 +40,8 @@
 
 
       <div class="box">
-        <div class="form">
         <h1>Choose a Date</h1>
-        <form action="{{url_for('predict')}}"method="post">
+        <form>
 
           <label for="month">Month:</label>
           <select name="month" id="month">
@@ -111,14 +113,14 @@
         </select>
         
           <br><br>
-          <button type="submit" id="submitButton" class="submit" onclick="history.go(-1);">Predict your delay</button>
+          <button type="button" onclick="optionChanged()">Predict your delay</button>
         </form>
         <br>
         <br>
-        {{ prediction_text }}
+        <div id="prediction-result">
         </div>
       </div>
 
-
+ <script src="static/app.js"></script>
 </body>
 </html>
