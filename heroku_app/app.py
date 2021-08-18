@@ -23,7 +23,7 @@ def home():
     # Return template and data
     return render_template("index.html")
 
-@app.route("/getData", methods=["GET"])
+@app.route("/predict", methods=["POST"])
 def getData():
     #create aggregate 1
     airline_agg = df.groupby(["MKT_UNIQUE_CARRIER"]).size().reset_index()
