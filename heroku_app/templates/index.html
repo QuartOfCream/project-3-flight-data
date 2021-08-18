@@ -5,7 +5,7 @@
   <title>title</title>
   <style>
     body {
-        background-image: url('images/airport.jpeg');
+        background-image: url('/images/airport.jpeg');
         background-repeat: no-repeat;
         background-size: 1920px 1080px;
     }
@@ -28,7 +28,7 @@
 <body>
     <div class="container">
         <div class="image">
-          <img src="images/iconwhite.png" style="float:left;padding:10px;width:30px;height:30px">
+          <img src="heroku_app/templates/images/icon.png" style="float:left;padding:10px;width:30px;height:30px">
         </div>
         <div class="text">
           <h1 style="color:white;font-family:verdana;font-size:150%;font-weight:normal;">flightDelay</h1>
@@ -39,21 +39,22 @@
       <div class="box">
         <div class="form">
         <h1>Choose a Date</h1>
-        <form action="/action_page.php" >
+        <form action="{{url_for('predict')}}"method="post">
+
           <label for="month">Month:</label>
           <select name="month" id="month">
-            <option value="jan">January</option>
-            <option value="feb">February</option>
-            <option value="mar">March</option>
-            <option value="apr">April</option>
-            <option value="may">May</option>
-            <option value="jun">June</option>
-            <option value="jul">July</option>
-            <option value="aug">August</option>
-            <option value="sep">September</option>
-            <option value="oct">October</option>
-            <option value="nov">November</option>
-            <option value="dec">December</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
         </select>
           <label for="day">Day:</label>
           <select name="day" id="day">
@@ -89,13 +90,32 @@
           </select>
           <label for="airline">Airline:</label>
           <select name="airline" id="airline">
-            <option value="aa">American Airlines</option>
-            <option value="united">United Airlines</option>
+            <option value="0">Endeavor Air</option>
+            <option value="1">American Airlines</option>
+            <option value="2">Alaska Airlines</option>
+            <option value="3">Jet Blue</option>
+            <option value="4">Delta Airlines</option>
+            <option value="5">Express Jet</option>
+            <option value="6">Frontier Airlines</option>
+            <option value="7">Allegiant Airlines</option>
+            <option value="8">Hawaiian Airlines</option>
+            <option value="9">Envoy Airlines</option>
+            <option value="10">Spirit Airlines</option>
+            <option value="11">PSA Airlines</option>
+            <option value="12">SkyWest Airlines</option>
+            <option value="13">Horizon Airlines</option>
+            <option value="14">United Airlines</option>
+            <option value="15">Southwest Airlines</option>
+            <option value="16">Mesa Airlines</option>
+            <option value="17">Republic Airways</option>
         </select>
         
           <br><br>
-          <input type="submit" value="Submit">
+          <button type="submit" id="submitButton" class="submit" onclick="history.go(-1);">Predict your delay</button>
         </form>
+        <br>
+        <br>
+        {{ prediction_text }}
         </div>
       </div>
 
