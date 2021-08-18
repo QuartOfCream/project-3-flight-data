@@ -27,7 +27,9 @@ def predict2(month, day, airlineId):
     output = round(prediction[0], 2)
 
     result = {}
-    result['message'] = 'The predicted delay for this date is: {} minutes'.format(output)
+    result['month'] = month
+    result['day'] = day
+    result['minutes'] = output
 
     return jsonify(result)
 

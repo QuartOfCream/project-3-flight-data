@@ -5,14 +5,13 @@ function getPredictions() {
     var dropdownDay = d3.select("#day").node().value;
     var dropdownAirline = d3.select("#airline").node().value;
 
-    console.log(dropdownMonth);
-
     d3.json(`/predict/${dropdownMonth}/${dropdownDay}/${dropdownAirline}`).then((data) => {
-        console.log(data);
-
         var resultDiv = d3.select("#prediction-result");
 
-        resultDiv.text(data.message);
+        var airlineName = d3.select("#airline option:checked").text();
+        var monthName = d3.select("#month option:checked").text();
+
+        resultDiv.text(`The predicted delay for ${airlineName} on ${dropdownDay} ${monthName} is ${data.minutes} minutes.`);
     });
 }
 
