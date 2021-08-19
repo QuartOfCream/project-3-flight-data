@@ -5,9 +5,10 @@
   <title>Predict Your Delay</title>
   <style>
     body {
-        background-image: url('heroku_app/templates/airport.jpeg');
+        background-image: url('/static/airport.jpeg');
         background-repeat: no-repeat;
-        background-size: 1920px 1080px;
+        background-size: cover;
+ 
     }
     .box {
         width: 800px;
@@ -31,7 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     <div class="container">
         <div class="image">
-          <img src="heroku_app/templates/images/icon.png" style="float:left;padding:10px;width:30px;height:30px">
+          <img src="/static/iconwhite.png" style="float:left;padding:10px;width:30px;height:30px">
         </div>
         <div class="text">
           <h1 style="color:white;font-family:verdana;font-size:150%;font-weight:normal;">flightDelay</h1>
