@@ -9,7 +9,7 @@ import pickle
 #init app and class
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-model = pickle.load(open('heroku_app/model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 # Route to render index.html template
 @app.route("/")
