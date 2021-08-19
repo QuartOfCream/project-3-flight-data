@@ -2,30 +2,97 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Predict Your Delay</title>
+  <title>flightDelay</title>
   <style>
     body {
         background-image: url('/static/airport.jpeg');
         background-repeat: no-repeat;
         background-size: cover;
- 
+    }
+    .bodytext {
+      font-family: trebuchet ms;
+      color: gray;
+      margin: auto;
+      text-align: center;
+    }
+    .titletext {
+      color:white;
+      font-family:trebuchet ms;
+      font-size:150%;
+      font-weight:normal;
+      margin-top: 10px;
     }
     .box {
-        width: 800px;
-        height: 200px;
-        border: 3px solid white;
-        background-color: white;
-        border-radius: 25px;
-        position: relative; left:250px; top:100px;
-        float: left;
-        margin: 20px;
+      width: 800px;
+      height: 320px;
+      border: 3px solid white;
+      background-color: white;
+      border-radius: 25px;
+      position: relative; left:250px; top:100px;
+      float: left;
+      margin: 20px;
+      box-shadow: 5px 5px 20px black;
     }
-    .form {
-      font-family: verdana;
-      position: relative; left:180px; top:20px;
+    .button {
+      font-family:trebuchet ms;
+      font-weight: bold;
+      width:180px;
+      height:40px;
+      background-color:orangered;
+      border: 1px solid orangered;
+      border-radius: 15px;
+      color: white;
+    }
+    .dropdown {
+      font-family:trebuchet ms;
+      width:100px;
+      height: 30px;
+      border: 2px solid lightgray;
+      border-radius: 8px;
+    }
+    .dropdown2 {
+      font-family:trebuchet ms;
+      width:50px;
+      height: 30px;
+      border: 2px solid lightgray;
+      border-radius: 8px;
+    }
+    .dropdown3 {
+      font-family:trebuchet ms;
+      width:150px;
+      height: 30px;
+      border: 2px solid lightgray;
+      border-radius: 8px;
+    }
+    .dropdownmargin {
+      margin: auto;
+      text-align: center;
+    }
+    .buttonmargin {
+      margin: auto;
+      text-align: center;
+    }
+    .copyrights {
+      font-family:trebuchet ms;
+      color: white;
+      font-weight: lighter;
+      position: fixed;
+      bottom: 0;
+      margin-bottom: 10px;
+    }
+    .socialicons {
+      position: fixed;
+      bottom: 0;
+      margin-bottom: 5px;
+      right: 0;
+      margin-right: 10px;
+    }
+    .results {
+      font-family:trebuchet ms;
+      text-align: center;
     }
     </style>
-    
+
 </head>
 <body>
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -35,17 +102,21 @@
           <img src="/static/iconwhite.png" style="float:left;padding:10px;width:30px;height:30px">
         </div>
         <div class="text">
-          <h1 style="color:white;font-family:verdana;font-size:150%;font-weight:normal;">flightDelay</h1>
+          <h1 class="titletext">flightDelay</h1>
         </div>
       </div>
 
-
       <div class="box">
-        <h1>Choose a Date</h1>
+        <h1 style="font-family:trebuchet ms;line-height:30px;margin-top:25px;text-align:center;">Choose a Date</h1>
+        <br>
+        <div class="bodytext">
+        <p1>Select a date and airline to see the predicted delay</p1>
+        </div>
+        <div class="dropdownmargin">
         <form>
-
-          <label for="month">Month:</label>
-          <select name="month" id="month">
+        <br>  
+          <label for="month" style="font-family:trebuchet ms;">Month:</label>
+          <select name="month" id="month" class="dropdown">
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
@@ -59,8 +130,8 @@
             <option value="11">November</option>
             <option value="12">December</option>
         </select>
-          <label for="day">Day:</label>
-          <select name="day" id="day">
+          <label for="day" style="font-family:trebuchet ms">Day:</label>
+          <select name="day" id="day" class="dropdown2">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -74,6 +145,7 @@
               <option value="12">12</option>
               <option value="13">13</option>
               <option value="14">14</option>
+              <option value="15">15</option>
               <option value="15">16</option>
               <option value="17">17</option>
               <option value="18">18</option>
@@ -91,8 +163,8 @@
               <option value="30">30</option>
               <option value="31">31</option>
           </select>
-          <label for="airline">Airline:</label>
-          <select name="airline" id="airline">
+          <label for="airline" style="font-family:trebuchet ms">Airline:</label>
+          <select name="airline" id="airline" class="dropdown3">
             <option value="0">Endeavor Air</option>
             <option value="1">American Airlines</option>
             <option value="2">Alaska Airlines</option>
@@ -112,16 +184,27 @@
             <option value="16">Mesa Airlines</option>
             <option value="17">Republic Airways</option>
         </select>
-        
+      </div>
           <br><br>
-          <button type="button" onclick="optionChanged()">Predict your delay</button>
+      <div class="buttonmargin">
+          <button type="button" class="button" onclick="optionChanged()">Predict your delay</button>
         </form>
+      </div>
         <br>
         <br>
-        <div id="prediction-result">
+        <div id="prediction-result" Class="results">
         </div>
       </div>
 
  <script src="static/app.js"></script>
+
+ <div class="copyrights">
+  <p2>©2021 flightDelay, Inc. All Rights Reserved</p2>
+ </div>
+ <div class="socialicons">
+  <img src="/static/facebook.png" style="padding:5px;height:20px;width:auto">
+  <img src="/static/twitter.png" style="padding:5px;height:20px;width:auto">
+  <img src="/static/instagram.png" style="padding:5px;height:20px;width:auto">
+ </div>
 </body>
 </html>
