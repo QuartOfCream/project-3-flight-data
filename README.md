@@ -30,4 +30,6 @@ The index.html file used plenty of inline CSS, rather than a styles.css file. Af
 <div id="prediction-result" Class="results">
 
 The only remaining things were adding some information to the bottom of the page.
+	
+![Captura de pantalla 2021-09-14 122428VersionCorrecta](https://user-images.githubusercontent.com/78526332/133305024-0fe04a6b-75d0-4cef-a56d-95dd92e85202.png)
 
