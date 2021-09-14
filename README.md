@@ -11,13 +11,13 @@ function, executed .fit to train it, and then we use those results as the final 
 
 The mean squared error (MSE) was 94.077%. The R-Squared value was 0.011999. These aren’t particularly good results. Some potential reasons for these data scores are as follows: perhaps we didn’t normalize or standardize as many columns as necessary. We could have had too many null values. The more null values, the weaker the fit to train. We could have had low effect, meaning that we had too many unnecessary columns. We did use .groupby() and brackets after the dataframe to separate only the columns we needed, but perhaps there was some extraneous data somewhere. Perhaps some columns should have been combined. This would have helped with principle component analysis (PCA), which, although an unsupervised technique, still applies here. We had a multivariate data table which we could have set into smaller summary indices in order to observe trends, jumps, clusters, and outliers. Perhaps we didn’t standardize some columns that had outliers, perhaps major since the multivariate data table was so large, using MCT (mean, range, standard deviation, etc.). It’s even possible that a different regression type would have worked better – such as polynomial regression. We could have used model comparison to determine which algorithm gave us the strongest result – but we had no time for this. We knew from the beginning that we needed to find the coefficient and slope to see how it affected the target variables. We did use dummy variables, however. As we can see from the model below, sometimes simple is better. Too much technology and requirements leads to anarchy and the simplest answer is close to certainty and close to agreeme
 
-	<img src=(https://user-images.githubusercontent.com/78526332/133300574-e3c998f1-2663-451d-9c7e-a418543619b3.jpg)
+	<img src="https://user-images.githubusercontent.com/78526332/133300574-e3c998f1-2663-451d-9c7e-a418543619b3.jpg"
 
 
 In effect – not enough preprocessing. However, given the time that we were given, we achieved an excellent result. Had we had more time, we could have done the aforementioned steps. Preprocessing is the bulk of machine learning work.
 To deploy, we used the following model.
 
-	<img src=(https://user-images.githubusercontent.com/78526332/133300805-e10303fb-0ab0-4015-9728-9894d7666b15.jpg)
+	<img src="https://user-images.githubusercontent.com/78526332/133300805-e10303fb-0ab0-4015-9728-9894d7666b15.jpg"
   
 After finishing with the machine learning, we created a flask app using python to depickle the pickled file with our data inside of it.
 model = pickle.load(open('model.pkl', 'rb'))
