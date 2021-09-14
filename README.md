@@ -17,7 +17,7 @@ The mean squared error (MSE) was 94.077%. The R-Squared value was 0.011999. Thes
 In effect – not enough preprocessing. However, given the time that we were given, we achieved an excellent result. Had we had more time, we could have done the aforementioned steps. Preprocessing is the bulk of machine learning work.
 To deploy, we used the following model.
 
-	<img src="https://user-images.githubusercontent.com/78526332/133300805-e10303fb-0ab0-4015-9728-9894d7666b15.jpg"
+![FlowChartReadme](https://user-images.githubusercontent.com/78526332/133303289-fb16c532-f727-46aa-8b7d-519ca494f3ee.jpg)
   
 After finishing with the machine learning, we created a flask app using python to depickle the pickled file with our data inside of it.
 model = pickle.load(open('model.pkl', 'rb'))
